@@ -12,6 +12,7 @@ for i in range(N):
     dato = float(input("\tIngrese el dato {}: ".format(i+1)))
     datos.append(dato)
 n = int(input("\n-> Ingrese el tamaño de n: "))
+decimales = int(input("\n\n-> Ingrese el número de decimales: "))
 
 combinaciones = list(itertools.combinations(datos, n))
 
@@ -30,11 +31,10 @@ for media in medias:
     if n not in tabla_medias:
         tabla_medias.append(n)
 
-print("\n\n x \t f \t p(x) \t x*p(x)")
-print("-------------------------------")
+print("\n\n   x", " "*(decimales), " f     p(x)     x*p(x)")
+print("-"*(decimales*8))
 for tupla in tabla_medias:
-    print("{0:.3f} \t {1} \t {2}/{3} \t {4:.3f}".format(tupla[0], tupla[1], tupla[1], len(combinaciones), tupla[0] * tupla[2]))
+    print('{t[0]:.{decimales}f}     {t[1]}     {t[1]}/{N}     {xp:.{decimales}f}'.format(t=tupla, N=len(combinaciones), xp=tupla[0]*tupla[2], decimales=decimales))
     suma_medias += tupla[0] * tupla[2]
 
 print("\n\n Resultado: {}".format(suma_medias))
-
