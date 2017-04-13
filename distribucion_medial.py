@@ -7,12 +7,35 @@ suma_medias = 0
 
 print("\n\nBienvenido, este programa calcula la distribución muestral de medias.\n\n")
 
-N = int(input("-> Ingrese el tamaño de N: "))
+while True:
+    try:
+        N = int(input("-> Ingrese el tamaño de N: "))
+        break
+    except ValueError:
+        print("\nIngrese un dato numérico. \n\n")
+
 for i in range(N):
-    dato = float(input("\tIngrese el dato {}: ".format(i+1)))
-    datos.append(dato)
-n = int(input("\n-> Ingrese el tamaño de n: "))
-decimales = int(input("\n\n-> Ingrese el número de decimales: "))
+    while True:
+        try:
+            dato = float(input("\tIngrese el dato {}: ".format(i+1)))
+            datos.append(dato)
+            break
+        except ValueError:
+            print("\nIngrese un dato numérico. \n\n")
+
+while True:
+    try:
+        n = int(input("\n-> Ingrese el tamaño de n: "))
+        break
+    except ValueError:
+        print("\nIngrese un dato numérico. \n\n")
+
+while True:
+    try:
+        decimales = int(input("\n\n-> Ingrese el número de decimales: "))
+        break
+    except ValueError:
+        print("\nIngrese un dato numérico. \n\n")
 
 combinaciones = list(itertools.combinations(datos, n))
 
